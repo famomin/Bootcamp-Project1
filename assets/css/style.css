@@ -1,0 +1,23 @@
+.socialMedia {
+	width: 40px;
+	height: 40px;
+	margin: 5px;
+}
+
+.paymentOptions {
+	width: 50px;
+	height: 32px;
+	margin: 5px;
+}
+
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - Page Specific- - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+
+/* - - - - - - - Home Page - - - - - - - - - -*/
+.newsletterSection {
+	padding: 30px 0 40px 0;
+	background-color: lightgray;
+	background-image: url("../assets/Images/newsletter.jpeg");
+    background-size: cover;
+}
