@@ -1,101 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Shiplifly</title>
+
+    <title>Shiplify</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Theme CSS -->
+    <link href="assets/css/agency.min.css" rel="stylesheet">
+    <link href="assets/css/agency.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
 </head>
-<body>
 
-<script>
-	var apiKey = 'cQVOnDzVCxA2YXpIadqNkg';
-	var easypost = require('node-easypost')(apiKey);
+<body class="index">
 
-	// set addresses
-	var toAddress = {
-	    name: "Dr. Steve Brule",
-	    street1: "179 N Harbor Dr",
-	    city: "Redondo Beach",
-	    state: "CA",
-	    zip: "90277",
-	    country: "US",
-	    phone: "310-808-5243"
-	};
-	var fromAddress = {
-	    name: "EasyPost",
-	    street1: "118 2nd Street",
-	    street2: "4th Floor",
-	    city: "San Francisco",
-	    state: "CA",
-	    zip: "94105",
-	    phone: "415-123-4567"
-	};
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll"> <!-- logo div -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">SHIPLIFY</a>
+            </div> <!-- closing logo div -->
 
-	// verify address
-	easypost.Address.create(toAddress, function(err, toAddress) {
-	    toAddress.verify(function(err, response) {
-	        if (err) {
-	            console.log('Address is invalid.');
-	        } else if (response.message !== undefined && response.message !== null) {
-	            console.log('Address is valid but has an issue: ', response.message);
-	            var verifiedAddress = response.address;
-	        } else {
-	            var verifiedAddress = response;
-	        }
-	    });
-	});
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> <!-- navbar links div -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden"><a href="#page-top"></a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Check Rates</a></li>
+                    <li><a href="#">Carriers</a></li>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Cart</a></li>
+                </ul>
+            </div><!-- closing navbar links div -->
+        </div><!-- closing container-fluid -->
+    </nav> <!-- closing navbar -->
 
-	// set parcel
-	easypost.Parcel.create({
-	    predefined_package: "InvalidPackageName",
-	    weight: 21.2
-	}, function(err, response) {
-	    console.log(err);
-	});
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">SHIPLIFY</div>
+                <div class="intro-heading">Simplifying Shipiing</div>
+                <a href="#services" class="page-scroll btn btn-xl">Learn How</a>
+            </div>
+        </div>
+    </header>
 
-	var parcel = {
-	    length: 10.2,
-	    width: 7.8,
-	    height: 4.3,
-	    weight: 21.2
-	};
+    <!-- Services Section -->
+    <section id="services" class="servicesSectionPage">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Three Easy Steps</h2>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Search</h4>
+                    <p class="text-muted">Browse for shipping rates</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Buy & Pring Label</h4>
+                    <p class="text-muted">Once you decide on rate and carrier, print the label.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Ship & Track</h4>
+                    <p class="text-muted">Paste the lable on your package, and ship it. Then track it's location.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-	// create customs_info form for intl shipping
-	var customsItem = {
-	    description: "EasyPost t-shirts",
-	    hs_tariff_number: 123456,
-	    origin_country: "US",
-	    quantity: 2,
-	    value: 96.27,
-	    weight: 21.1
-	};
+    <section class="newsletter-Signup">
+        <div class="container-fluid newsletterSection"> <!-- container for newsletter signup -->
+            <div class="row"> <!-- row for newsletter -->
+                <div class="col-sm-12 text-center">
+                    <h2>Subscribe to Our Newsletter</h2>
+                </div>
+            </div>
 
-	var customsInfo = {
-	    customs_certify: 1,
-	    customs_signer: "Hector Hammerfall",
-	    contents_type: "gift",
-	    contents_explanation: "",
-	    eel_pfc: "NOEEI 30.37(a)",
-	    non_delivery_option: "return",
-	    restriction_type: "none",
-	    restriction_comments: "",
-	    customs_items: [customsItem]
-	};
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-4">
+                    <div class="form-group">                            
+                        <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">   
+                <div class="col-lg-12 text-center">
+                    <div id="subscribeNewsletter"></div>
+                    <button type="submit" class="btn btn-xl">SUBSCRIBE</button>                    
+                </div>
+            </div> <!-- closing row for newsletter -->
+        </div> <!-- closing container for newsletter signup -->
+    </section>
+    
+    <footer>
+        <div class="container-fluid">
+            <div class="row"> <!-- footer row -->
+                <div class="col-sm-12 col-md-1 col-md-offset-1 col-lg-1 col-lg-offset-1"> <!-- footer col 1 -->
+                    <p><a href="#">FAQs</a></p>
+                    <p><a href="#">International Shipping</a></p>
+                    <p><a href="#">Refund Policy</a></p>
+                    <p><a href="#">Terms of Service</a></p>
+                    <p><a href="#">Contact Us</a></p>          
+                </div> <!-- closing footer col 1 -->
 
-	// create shipment
-	easypost.Shipment.create({
-	    to_address: toAddress,
-	    from_address: fromAddress,
-	    parcel: parcel,
-	    customs_info: customsInfo
-	}, function(err, shipment) {
-	    // buy postage label with one of the rate objects
-	    shipment.buy({rate: shipment.lowestRate(['USPS', 'ups']), insurance: 100.00}, function(err, shipment) {
-	        console.log(shipment.tracking_code);
-	        console.log(shipment.postage_label.label_url);
-	    });
-	});
-	
-</script>
-	
+                <div class="col-sm-12 col-md-1 col-md-offset-2 col-lg-1 col-lg-offset-2"> <!-- footer col 2 -->
+                    <p><a href="#">Example 1</a></p>
+                    <p><a href="#">Example 2</a></p>
+                    <p><a href="#">Example 3</a></p>
+                    <p><a href="#">Example 4</a></p>         
+                </div> <!-- closing footer col 2 -->
+
+                <div class="col-sm-12 col-md-1 col-md-offset-2 col-lg-1 col-lg-offset-2"> <!-- footer col 3 -->
+                    <p>Connect With Us</p>
+                    <p><a href="#"><img class="socialMedia" src="assets/Images/facebook.png"></a>
+                    <a href="#"><img class="socialMedia" src="assets/Images/linkedin.png"></a></p>
+                    <p><a href="#"><img class="socialMedia" src="assets/Images/Twitter.png"></a></p>
+                </div> <!-- closing footer col 3 -->
+
+                <div class="col-sm-12 col-md-1 col-md-offset-2 col-lg-1 col-lg-offset-2"> <!-- footer col 4 -->
+                    <p>We Accept</p>
+                    <p><img class="paymentOptions" src="assets/Images/amex.png">
+                    <img class="paymentOptions" src="assets/Images/discover.png"></p>
+                    
+                    <p><img class="paymentOptions" src="assets/Images/mc.png">
+                    <img class="paymentOptions" src="assets/Images/visa.png"></p>
+                    <p><img class="paymentOptions" src="assets/Images/paypal.png"></p>         
+                </div> <!-- closing footer col 4 -->
+
+            </div> <!-- closing footer row -->
+
+            <div class="row"> <!-- footer row -->
+                    <div class="col-sm-12 col-md-10 col-md-offset-1"> <!-- footer col 1 -->
+                        <h4 class="text-center footer-copyright"> &#169; Copyright 2016 Shiplify</h4>     
+                    </div> <!-- closing footer col 1 -->        
+            </div> <!-- closing footer row --> 
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/agency.min.js"></script>
+
 </body>
+
 </html>
