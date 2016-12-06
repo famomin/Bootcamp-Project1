@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Shiplify</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Theme CSS -->
+    <link href="assets/css/agency.min.css" rel="stylesheet">
+    <link href="assets/css/agency.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body class="index">
+
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll"> <!-- logo div -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">SHIPLIFY</a>
+            </div> <!-- closing logo div -->
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> <!-- navbar links div -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden"><a href="#page-top"></a></li>
+                    <li><a href="AboutUs.html">About Us</a></li>
+                    <li><a href="checkrates.html">Check Rates</a></li>
+                    <li><a href="carriers.html">Carriers</a></li>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Cart</a></li>
+                </ul>
+            </div><!-- closing navbar links div -->
+        </div><!-- closing container-fluid -->
+    </nav> <!-- closing navbar -->
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Check Shipping Rates</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem fugit reiciendis iusto quibusdam pariatur exercitationem assumenda facere quis necessitatibus voluptates cum rerum excepturi, ducimus delectus possimus officia, id saepe iste! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, praesentium? Itaque alias possimus pariatur repellendus consectetur eligendi aliquid at nisi ipsa, magni. Deserunt recusandae quaerat ut a dolores eum debitis.</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Input package Details -->
+    <div class="container-fluid"> <!-- contianer for user inputs for package size, type and weight -->
+        <div class="row"> <!-- row for inputs -->
+            <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3"><!-- column for package inputs -->
+                <div class="panel panel-primary"> <!-- panel primary -->
+                    <div class="panel-body"><!-- panel body -->
+                        
+                        <div class="row"> <!-- row for user's address -->
+                            <div class="col-sm-4 col-md-4"> <!-- label for form line 1-->
+                                <h4> Your Address </h4>
+                            </div> <!-- closing label for form line 1 -->
+                            
+                            <div class="col-sm-8 col-md-8">
+                                <div class="form-group"> <!-- form for user input their location -->
+                                    <input type="text" class="form-control" placeholder="Please enter your city or zip code" id="shipsFrom" required data-validation-required-message="Please enter your city or zip code">
+                                    <p class="help-block text-danger"></p>
+                                </div> <!-- form for user input their location -->
+                            </div>
+                        </div><!-- closing row for user address -->
+
+
+                        <div class="row"> <!-- row for destination address -->
+                            <div class="col-sm-4 col-md-4"> <!-- label for destination address -->
+                                <h4>Destination Address</h4>
+                            </div> <!-- closing label for destination address -->
+                            
+                            <div class="col-sm-8 col-md-8">
+                                <div class="form-group"> <!-- form for user input their destination location -->
+                                    <input type="text" class="form-control" placeholder="Please enter your destination city or zip code" id="shipsTo" required data-validation-required-message="Please enter your destination city or zip code">
+                                    <p class="help-block text-danger"></p>
+                                </div> <!-- closing form for user input their destination location -->
+                            </div>
+                        </div><!-- closing row for destination address -->
+
+
+                        <div class="row"> <!-- row for destination address type -->
+                            <div class="col-sm-4 col-md-4"> <!-- label for destination address type -->
+                                <h4> Destination Address Type </h4>
+                            </div> <!-- closing label for destination address -->
+                            
+                            <div class="col-sm-4 col-md-4"> <!-- column for first option of address type -->
+                                <div class="radio">
+                                    <label><input type="radio" id="residentialButton">Residential</label>
+                                </div>
+                            </div> <!-- closing column for first option of address type -->
+
+                            <div class="col-sm-4 col-md-4"> <!-- column for second option of address type -->
+                                <div class="radio">
+                                    <label><input type="radio" id="commercialButton">Commercial/Office</label>
+                                </div>
+                            </div> <!-- closing column for second option of address type -->
+                        </div><!-- closing row for destination address type -->
+
+
+                        <div class="row"> <!-- row for pickup or drop off -->
+                            <div class="col-sm-4 col-md-4"> <!-- label for pickup drop off -->
+                                <h4> Pick-Up/Drop-Off </h4>
+                            </div> <!-- closing label for pick up or drop off -->
+                            
+                            <div class="col-sm-4 col-md-4"> <!-- column for first option of pick up -->
+                                <div class="radio">
+                                    <label><input type="radio" id="pickupButton">Pick-Up</label>
+                                </div>
+                            </div> <!-- closing column for first option of pick up-->
+
+                            <div class="col-sm-4 col-md-4"> <!-- column for second option of drop off -->
+                                <div class="radio">
+                                    <label><input type="radio" id="dropoffButton">Drop-Off</label>
+                                </div>
+                            </div> <!-- closing column for second option of drop off -->
+                        </div><!-- closing row for pick up or drop off -->
+
+
+                        <div class="row"> <!-- row for package type -->
+                            <div class="col-sm-4 col-md-4"> <!-- label for package Envelope -->
+                                <h4> Shipment Type </h4>
+                            </div> <!-- closing label for package Envelope -->
+                            
+                            <div class="col-sm-4 col-md-4"> <!-- column for first option of package -->
+                                <div class="radio">
+                                    <label><input type="radio" id="packageButton">Package</label>
+                                </div>
+                            </div> <!-- closing column for first option package-->
+
+                            <div class="col-sm-4 col-md-4"> <!-- column for second option of Envelope -->
+                                <div class="radio">
+                                    <label><input type="radio" id="envelopeButton">Envelope</label>
+                                </div>
+                            </div> <!-- closing column for second option Envelope -->
+                        </div><!-- closing row for package type-->
+
+                        <!-- div to create dividor -->
+                        <div class="row" style="margin: 10px 5px; border-bottom: 1px solid lightgray"></div>
+                        
+
+                        <div class="row"> <!-- Package Detials -->
+                            <div class="col-sm-4 col-md-4"> <!-- label for package details -->
+                                <h4> Package Details </h4>
+                            </div> <!-- closing label for package details -->
+                        </div> <!-- closing package details -->
+                        
+
+                        <div class="row" style="margin-bottom: 10px"> <!-- row for units -->
+                            <div class="col-sm-4 col-md-4"> <!-- label for units -->
+                                <h4> Units </h4>
+                            </div> <!-- closing label for units-->
+                            
+                            <div class="col-sm-4 col-md-4"> <!-- column for first option of units -->
+                                <div class="radio">
+                                    <label><input type="radio" id="poundButton">lb/in</label>
+                                </div>
+                            </div> <!-- closing column for first option units-->
+
+                            <div class="col-sm-4 col-md-4"> <!-- column for second option of units -->
+                                <div class="radio">
+                                    <label><input type="radio" id="kgButton">kg/cm</label>
+                                </div>
+                            </div> <!-- closing column for second option Envelope -->
+                        </div><!-- closing row for package type-->
+
+                        <div class="row text-center"> <!-- row for weight, length, width, and height-->
+
+                            <!-- weight label -->
+                            <div class="col-sm-2 col-sm-offset-4 col-md-2 col-md-offset-4">
+                                <h6>Weight</h6>
+                            </div>
+
+                            <!-- length label -->
+                            <div class="col-sm-2 col-md-2">
+                                <h6>Length</h6>
+                            </div>
+
+                            <!-- width label -->
+                            <div class="col-sm-2 col-md-2">
+                                <h6>Width</h6>
+                            </div>
+
+                            <!-- height label -->
+                            <div class="col-sm-2 col-md-2">
+                                <h6>Height</h6>
+                            </div>
+                        </div> <!-- row for weight, length, width, and height-->
+
+                        <div class="row"> <!-- row for package 1 details-->
+                            <div class="col-sm-4 col-md-4"><!-- label for package details -->
+                                <h4>Package 1</h4>
+                            </div> <!-- closing label for package details -->
+
+                            <div class="col-sm-2 col-md-2">
+                                <div class="form-group"> <!-- form for user input weight -->
+                                    <input type="text" class="form-control" placeholder="lb" id="weightForm" required data-validation-required-message="Please enter correct weight">
+                                    <p class="help-block text-danger"></p>
+                                </div> <!-- form for user input weight -->
+                            </div>
+
+                            <div class="col-sm-2 col-md-2">
+                                <div class="form-group"> <!-- form for user input length -->
+                                    <input type="text" class="form-control" placeholder="in" id="LengthFrom" required data-validation-required-message="Please enter correct length">
+                                    <p class="help-block text-danger"></p>
+                                </div> <!-- form for user input length -->
+                            </div>
+
+                            <div class="col-sm-2 col-md-2">
+                                <div class="form-group"> <!-- form for user input width -->
+                                    <input type="text" class="form-control" placeholder="in" id="shipsFrom" required data-validation-required-message="Please enter correct width">
+                                    <p class="help-block text-danger"></p>
+                                </div> <!-- form for user input width -->
+                            </div>
+
+                            <div class="col-sm-2 col-md-2">
+                                <div class="form-group"> <!-- form for user input height -->
+                                    <input type="text" class="form-control" placeholder="in" id="shipsFrom" required data-validation-required-message="Please enter correct height">
+                                    <p class="help-block text-danger"></p>
+                                </div> <!-- form for user input height -->
+                            </div>
+
+                        </div> <!-- closing row for pacakge 1 details -->
+                        
+                        <!-- button for add more package -->
+                        <div class="row">
+                            <div class="col-sm-4 col-md-4">
+                                <a href="#">Add Package</a>
+                            </div>
+                        </div>
+                            
+                        <!-- get rates button -->
+                        <div class="col-lg-12 text-center">
+                            <div id="success"></div>
+                            <button type="submit" class="btn btn-xl">Get Rates</button>
+                        </div>
+
+                    </div><!-- closing panel body -->
+                </div> <!-- closing primary panel -->
+            </div>    <!-- closing column for package inputs -->
+        </div> <!-- closing row for inputs -->
+    </div> <!-- closing contianer for user inputs for package size, type and weight -->
+
+    <!-- footer -->
+    <footer>
+        <div class="container">
+            <div class="row"> <!-- footer row -->
+                <div class="col-sm-12 col-md-4 col-lg-4"> <!-- footer col 1 -->
+                    <p><a href="FAQs.html">FAQs</a></p>
+                    <p><a href="intlship.html">International Shipping</a></p>
+                    <p><a href="refund.html">Refund Policy</a></p>
+                    <p><a href="TAC.html">Terms of Service</a></p>
+                    <p><a href="contact.html">Contact Us</a></p>          
+                </div> <!-- closing footer col 1 -->
+
+                <div class="col-sm-12 col-md-4 col-lg-4"> <!-- footer col 3 -->
+                    <p>Connect With Us</p> <!-- heading for social media links -->
+                    <p><a href="#"><img class="socialMedia" src="assets/Images/facebook.png"></a>
+                    <a href="#"><img class="socialMedia" src="assets/Images/linkedin.png"></a></p>
+                    <p><a href="#"><img class="socialMedia" src="assets/Images/Twitter.png"></a></p>
+                </div> <!-- closing footer col 3 -->
+
+                <div class="col-sm-12 col-md-4 col-lg-4"> <!-- footer col 4 -->
+                    <p>We Accept</p> <!-- heading for acceptable payment forms -->
+
+                   <!--  two payment options in one first row -->
+                    <p><img class="paymentOptions" src="assets/Images/amex.png">
+                    <img class="paymentOptions" src="assets/Images/discover.png"></p>
+
+                    <!--  two payment options in second row -->
+                    <p><img class="paymentOptions" src="assets/Images/mc.png">
+                    <img class="paymentOptions" src="assets/Images/visa.png"></p>
+
+                    <!--  one payment options in last row -->
+                    <p><img class="paymentOptions" src="assets/Images/paypal.png"></p>         
+                </div> <!-- closing footer col 4 -->
+
+            </div> <!-- closing footer row -->
+
+            <div class="row"> <!-- footer row -->
+                    <div class="col-sm-12 col-md-10 col-md-offset-1"> <!-- footer col 1 -->
+                        <h4 class="text-center footer-copyright"> &#169; Copyright 2016 Shiplify</h4>     
+                    </div> <!-- closing footer col 1 -->        
+            </div> <!-- closing footer row --> 
+        </div>
+    </footer>
+
+
+    <!-- jQuery -->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="assets/js/jqBootstrapValidation.js"></script>
+    <script src="assets/js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="assets/js/agency.min.js"></script>
+
+</body>
+
+</html>
+
+
