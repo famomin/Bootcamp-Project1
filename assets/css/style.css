@@ -15,9 +15,19 @@
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
 /* - - - - - - - Home Page - - - - - - - - - -*/
+.headerImageIndex {
+	background-image: url("../../assets/Images/header.jpeg");
+}
+
 .newsletterSection {
 	padding: 100px 0;
     color: #f8f8f8;
     background: url(../../assets/Images/newsletter.jpeg) no-repeat center center;
     background-size: cover;
+}
+
+
+/* - - - - - - - About Us Page - - - - - - - - - -*/
+.headerImageAbout {
+	background-image: url("../../assets/Images/about.jpg");
 }
