@@ -1,87 +1,35 @@
-var apiKey = 'cQVOnDzVCxA2YXpIadqNkg';
-	var easypost = require('node-easypost')(apiKey);
+// var parcel = {
+//     // in INCHES
+//     length: 20,
+//     width: 15,
+//     height: 10,
+//     // in OZ
+//     weight: 45
+// };
 
-	// set addresses
-	var toAddress = {
-	    name: "Dr. Steve Brule",
-	    street1: "179 N Harbor Dr",
-	    city: "Redondo Beach",
-	    state: "CA",
-	    zip: "90277",
-	    country: "US",
-	    phone: "310-808-5243"
-	};
-	var fromAddress = {
-	    name: "EasyPost",
-	    street1: "118 2nd Street",
-	    street2: "4th Floor",
-	    city: "San Francisco",
-	    state: "CA",
-	    zip: "94105",
-	    phone: "415-123-4567"
-	};
 
-	// verify address
-	easypost.Address.create(toAddress, function(err, toAddress) {
-	    toAddress.verify(function(err, response) {
-	        if (err) {
-	            console.log('Address is invalid.');
-	        } else if (response.message !== undefined && response.message !== null) {
-	            console.log('Address is valid but has an issue: ', response.message);
-	            var verifiedAddress = response.address;
-	        } else {
-	            var verifiedAddress = response;
-	        }
-	    });
-	});
+// parcel = JSON.stringify(parcel);
+var weight = 100;
+var length = 101;
 
-	// set parcel
-	easypost.Parcel.create({
-	    predefined_package: "InvalidPackageName",
-	    weight: 21.2
-	}, function(err, response) {
-	    console.log(err);
-	});
 
-	var parcel = {
-	    length: 10.2,
-	    width: 7.8,
-	    height: 4.3,
-	    weight: 21.2
-	};
+//Heroku Link
+var queryURL = "https://nameless-inlet-48347.herokuapp.com/"+ weight + "/" + length;
 
-	// create customs_info form for intl shipping
-	var customsItem = {
-	    description: "EasyPost t-shirts",
-	    hs_tariff_number: 123456,
-	    origin_country: "US",
-	    quantity: 2,
-	    value: 96.27,
-	    weight: 21.1
-	};
+//Local Test Link
+//var queryURL = 'localhost:3000';
 
-	var customsInfo = {
-	    customs_certify: 1,
-	    customs_signer: "Hector Hammerfall",
-	    contents_type: "gift",
-	    contents_explanation: "",
-	    eel_pfc: "NOEEI 30.37(a)",
-	    non_delivery_option: "return",
-	    restriction_type: "none",
-	    restriction_comments: "",
-	    customs_items: [customsItem]
-	};
+//ajax call to retreive information form the API
+$.ajax({ url: queryURL, method: 'GET'})
+	.done(function(response){
+	//results is the response from the API. We mush parse so we can read as an object.
+	var results = JSON.parse(response);
+	//Console logging the API
+	console.log(results);
 
-	// create shipment
-	easypost.Shipment.create({
-	    to_address: toAddress,
-	    from_address: fromAddress,
-	    parcel: parcel,
-	    customs_info: customsInfo
-	}, function(err, shipment) {
-	    // buy postage label with one of the rate objects
-	    shipment.buy({rate: shipment.lowestRate(['USPS', 'ups']), insurance: 100.00}, function(err, shipment) {
-	        console.log(shipment.tracking_code);
-	        console.log(shipment.postage_label.label_url);
-	    });
-	});
+	var a = results.rates[1].rate;
+	var b = results.parcel;
+	console.log(a);
+	console.log(b);
+	$("#test").html(a);
+})
