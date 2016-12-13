@@ -33,6 +33,10 @@
 }
 
 /* - - - - - - - check rates page - - - - - - - - - -*/
+.headerCheckRate{
+	background-image: url("../../assets/Images/checkrates.png");
+}
+
 
 /* - - - - - - - rate comparison page  - - - - - - - - */
 
