@@ -33,3 +33,17 @@
 }
 
 /* - - - - - - - check rates page - - - - - - - - - -*/
+
+/* - - - - - - - rate comparison page  - - - - - - - - */
+
+#showMap, #mapColumn, #mapRow, #mapContainer {
+	height: 100%;
+}
+
+#services {
+	height: 100%;
+}
+
+html, body {
+    height: 100%;
+}

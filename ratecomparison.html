@@ -64,9 +64,9 @@
     
     <!-- section to show map of closest locations -->
     <section id="services" class="servicesSectionPage">
-        <div class="container"> <!-- map container -->
-            <div class="row"> <!-- row for heading  -->
-                <div class="col-lg-12 text-center">
+        <div id = "mapContainer" class="container"><!-- map container -->
+            <div id= "mapRow" class="row"> <!-- row for heading  -->
+                <div id="mapColumn" class="col-lg-12 text-center">
                     <div id="showMap"></div>
                 </div>
             </div> <!-- closing row for heading -->
@@ -143,6 +143,9 @@
     <!-- index java -->
     <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
     <script src="assets/javascript/index.js"></script>
+
+    <!-- Google Places API-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBn7OO0R_3Er16AAeAkJWdVspW2u7tNMmg&callback=initMap&libraries=places,visualization" async defer></script>
 
 </body>
 

@@ -1,87 +1,93 @@
-var apiKey = 'cQVOnDzVCxA2YXpIadqNkg';
-	var easypost = require('node-easypost')(apiKey);
+$('#checkRatesButton').on("click", function(event){
+	
+	event.preventDefault();
 
-	// set addresses
-	var toAddress = {
-	    name: "Dr. Steve Brule",
-	    street1: "179 N Harbor Dr",
-	    city: "Redondo Beach",
-	    state: "CA",
-	    zip: "90277",
-	    country: "US",
-	    phone: "310-808-5243"
-	};
-	var fromAddress = {
-	    name: "EasyPost",
-	    street1: "118 2nd Street",
-	    street2: "4th Floor",
-	    city: "San Francisco",
-	    state: "CA",
-	    zip: "94105",
-	    phone: "415-123-4567"
-	};
+	//User parcel Input data
+	var length = $('#LengthFrom').val();
+	var width = $('#WidthFrom').val();
+	var height = $('#HeightFrom').val();
 
-	// verify address
-	easypost.Address.create(toAddress, function(err, toAddress) {
-	    toAddress.verify(function(err, response) {
-	        if (err) {
-	            console.log('Address is invalid.');
-	        } else if (response.message !== undefined && response.message !== null) {
-	            console.log('Address is valid but has an issue: ', response.message);
-	            var verifiedAddress = response.address;
-	        } else {
-	            var verifiedAddress = response;
-	        }
-	    });
+	//API accepts weight in OZ
+	var lb = parseInt($('#weightFormlb').val()); 
+	//Converting lb to oz
+	var lbTOoz = lb * 16;
+	//OZ input value
+	var oz = parseInt($('#weightFormOZ').val());
+	//Weight in OZ
+	var weight = lbTOoz + oz;
+
+	//User toAddress data 
+	// var toStreet = "7037 Talbot Street "; 
+	// var toCity = "Freeport"; 
+	// var toState = "New York"; 
+	// var toZipcode = "11520";
+	// var toCountry = "US";
+	// var toPhone = "281-265-6073";  
+
+	//User toAddress Input data 
+	var toStreet = $('#toStreetAdd').val(); 
+	var toCity = $('#toCityAdd').val();
+	var toState = $('#toStateAdd').val(); 
+	var toZipcode = $('#toZipAdd').val();
+	var toCountry = "US";
+	var toPhone = "281-265-6073";  
+
+	//User fromAddress data 
+	// var fromStreet = "4626 Russett Lane"; 
+	// var fromCity = "Sugar Land"; 
+	// var fromState = "TX"; 
+	// var fromZipcode = "77479";
+	// var fromCountry = "US";
+	// var fromPhone = "281-265-1111";  
+
+	//User fromAddress Input data 
+	var fromStreet = $('#fromStreetAdd').val(); 
+	var fromCity = $('#fromCityAdd').val();
+	var fromState = $('#fromStateAdd').val(); 
+	var fromZipcode = $('#fromZipAdd').val();
+	var fromCountry = "US";
+	var fromPhone = "281-265-1111";  
+
+	//Heroku Link
+	var queryURL = "https://nameless-inlet-48347.herokuapp.com/"
+	//Parcel Data
+	+ length 			
+	+ "/" + width 		
+	+ "/" + height		
+	+ "/" + weight
+	//toAddress		
+	+ "/" + toStreet 
+	+ "/" + toCity
+	+ "/" + toState
+	+ "/" + toZipcode 
+	+ "/" + toCountry
+	+ "/" + toPhone
+	//toAddress		
+	+ "/" + fromStreet 
+	+ "/" + fromCity
+	+ "/" + fromState
+	+ "/" + fromZipcode 
+	+ "/" + fromCountry
+	+ "/" + fromPhone;
+
+
+	//Local Test Link
+	//var queryURL = 'localhost:3000';
+
+	//ajax call to retreive information form the API
+	$.ajax({ url: queryURL, method: 'GET'})
+		.done(function(response){
+		//results is the response from the API. We mush parse so we can read as an object.
+		var results = JSON.parse(response);
+		//Console logging the API
+		console.log(results);
+
+		var a = results.rates[1].rate;
+		//Variable for parcel data
+		var b = results.parcel;
+		//console.log(a);
+		//Prints Parcel data
+		//console.log(b);
+		
 	});
-
-	// set parcel
-	easypost.Parcel.create({
-	    predefined_package: "InvalidPackageName",
-	    weight: 21.2
-	}, function(err, response) {
-	    console.log(err);
-	});
-
-	var parcel = {
-	    length: 10.2,
-	    width: 7.8,
-	    height: 4.3,
-	    weight: 21.2
-	};
-
-	// create customs_info form for intl shipping
-	var customsItem = {
-	    description: "EasyPost t-shirts",
-	    hs_tariff_number: 123456,
-	    origin_country: "US",
-	    quantity: 2,
-	    value: 96.27,
-	    weight: 21.1
-	};
-
-	var customsInfo = {
-	    customs_certify: 1,
-	    customs_signer: "Hector Hammerfall",
-	    contents_type: "gift",
-	    contents_explanation: "",
-	    eel_pfc: "NOEEI 30.37(a)",
-	    non_delivery_option: "return",
-	    restriction_type: "none",
-	    restriction_comments: "",
-	    customs_items: [customsItem]
-	};
-
-	// create shipment
-	easypost.Shipment.create({
-	    to_address: toAddress,
-	    from_address: fromAddress,
-	    parcel: parcel,
-	    customs_info: customsInfo
-	}, function(err, shipment) {
-	    // buy postage label with one of the rate objects
-	    shipment.buy({rate: shipment.lowestRate(['USPS', 'ups']), insurance: 100.00}, function(err, shipment) {
-	        console.log(shipment.tracking_code);
-	        console.log(shipment.postage_label.label_url);
-	    });
-	});
+});
