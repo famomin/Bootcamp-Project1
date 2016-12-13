@@ -51,6 +51,15 @@
         </div><!-- closing container-fluid -->
     </nav> <!-- closing navbar -->
 
+    <!-- Header -->
+    <header class="headerCheckRate"> 
+        <div class="container"> <!-- header container -->
+            <div class="intro-text"> <!-- main page header div -->
+                <div class="intro-lead-in">Check Rates</div>
+            </div> <!-- closing header div -->
+        </div> <!-- closing header containrer div -->
+    </header>
+
     <!-- About Section -->
     <section id="about">
         <div class="container">
@@ -84,32 +93,39 @@
                             </div>
                         </div><!-- closing row for user address -->
 
+                        <div class="row"><!-- row for user apt/suite number -->
+                            <div class="col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-4"> <!-- column for user's apt/suite number -->
+                                <div class="form-group"> <!-- form for user input apt/suite number -->
+                                    <input type="text" class="form-control" placeholder="Apartment/Suite Number" 
+                                    id="fromApt" required data-validation-required-message="Please enter Apartment or Suite number">
+                                    <p class="help-block text-danger"></p>
+                                </div> <!-- closing column for user's apt/suite number -->
+                            </div>
+                        </div><!-- closing row for user apt/suite number -->
+
                         <div class="row"> <!-- row for user's city, State and zip code -->
                             <div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4"> <!-- column for user's city -->
-                                <div class="form-group"> <!-- form for user input their city -->
+                                <div class="form-group"> <!-- form for user input user's city -->
                                     <input type="text" class="form-control" placeholder="City" 
                                     id="fromCityAdd" required data-validation-required-message="Please enter your city">
                                     <p class="help-block text-danger"></p>
-                                </div> <!-- closing form for user input their city -->
+                                </div> <!-- closing form for user's input their city -->
                             </div><!-- closing column for user's city -->
-                        <div class="row"> <!-- row for destination address -->
-                            <div class="col-sm-4 col-md-4"> <!-- label for destination address -->
-                                <h4 id="test">Destination Address</h4>
-                            </div> <!-- closing label for destination address -->
+
                             <div class="col-sm-2 col-md-2"> <!-- column for user's State -->
-                                <div class="form-group"> <!-- form for user input their state -->
+                                <div class="form-group"> <!-- form for user input user's  state -->
                                     <input type="text" class="form-control" placeholder="State" 
                                     id="fromStateAdd" required data-validation-required-message="Please enter your State">
                                     <p class="help-block text-danger"></p>
-                                </div> <!-- form for user input their state -->
+                                </div> <!-- form for user input user's state -->
                             </div> <!-- closing column for user's State -->
 
                             <div class="col-sm-2 col-md-2"> <!-- column for user's zip code -->
-                                <div class="form-group"> <!-- form for user input their zip code -->
+                                <div class="form-group"> <!-- form for user input user's zip code -->
                                     <input type="text" class="form-control" placeholder="Zip Code" 
                                     id="fromZipAdd" required data-validation-required-message="Please enter your zip code">
                                     <p class="help-block text-danger"></p>
-                                </div> <!-- closing form for user input their zip code -->
+                                </div> <!-- closing form for user input user's zip code -->
                             </div> <!-- closing column for user's zip code -->
                         </div> <!-- row for user's city, State and zip code -->
 
@@ -124,11 +140,21 @@
                             <div class="col-sm-8 col-md-8"> <!-- column for destination street address -->
                                 <div class="form-group"> <!-- form for user destination street address -->
                                     <input type="text" class="form-control" placeholder="Destination Street Address" 
-                                    id="toStreetAdd" required data-validation-required-message="Please enter your street address">
+                                    id="toStreetAdd" required data-validation-required-message="Please enter destination street address">
                                     <p class="help-block text-danger"></p>
-                                </div> <!-- closing form for user destination street address -->
+                                </div> <!-- closing form for destination street address -->
                             </div><!-- closing column for destination street address -->
-                        </div><!-- closing row for user address -->
+                        </div><!-- closing row for Destination street address -->
+
+                         <div class="row"><!-- row for destination apt/suite number -->
+                            <div class="col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-4"> <!-- column for destination apt/suite number -->
+                                <div class="form-group"> <!-- form for destination input apt/suite number -->
+                                    <input type="text" class="form-control" placeholder="Apartment/Suite Number" 
+                                    id="fromApt" required data-validation-required-message="Please enter Apartment or Suite number">
+                                    <p class="help-block text-danger"></p>
+                                </div> <!-- closing column for destination apt/suite number -->
+                            </div>
+                        </div><!-- closing row for destination apt/suite number -->
 
                         <div class="row"> <!-- row for destination city, State and zip code -->
                             <div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4"> <!-- column for destination city -->
@@ -136,13 +162,13 @@
                                     <input type="text" class="form-control" placeholder="City" 
                                     id="toCityAdd" required data-validation-required-message="Please enter destination city">
                                     <p class="help-block text-danger"></p>
-                                </div> <!-- closing form for user input their city -->
-                            </div><!-- closing column for user's city -->
+                                </div> <!-- closing form for user input desination city -->
+                            </div> <!-- closing column for destination city -->
 
                             <div class="col-sm-2 col-md-2"> <!-- column for destination State -->
                                 <div class="form-group"> <!-- form for user input destination  state -->
                                     <input type="text" class="form-control" placeholder="State" 
-                                    id="toStateAdd" required data-validation-required-message="Please enter your State">
+                                    id="toStateAdd" required data-validation-required-message="Please enter destination state">
                                     <p class="help-block text-danger"></p>
                                 </div> <!-- form for user input destination state -->
                             </div> <!-- closing column for destination State -->
@@ -150,7 +176,7 @@
                             <div class="col-sm-2 col-md-2"> <!-- column for destination zip code -->
                                 <div class="form-group"> <!-- form for user input destination zip code -->
                                     <input type="text" class="form-control" placeholder="Zip Code" 
-                                    id="toZipAdd" required data-validation-required-message="Please enter your zip code">
+                                    id="toZipAdd" required data-validation-required-message="Please enter destination zip code">
                                     <p class="help-block text-danger"></p>
                                 </div> <!-- closing form for user input destination zip code -->
                             </div> <!-- closing column for destination zip code -->
@@ -161,7 +187,7 @@
                         
 
                         <div class="row"> <!-- Package Detials -->
-                            <div class="col-sm-4 col-md-4"> <!-- label for package details -->
+                            <div class="col-sm-12 col-md-12 text-center"> <!-- label for package details -->
                                 <h4> Package Details </h4>
                             </div> <!-- closing label for package details -->
                         </div> <!-- closing package details -->
