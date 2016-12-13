@@ -72,13 +72,13 @@ $('.checkRatesButton').on("click", function(){
 //-------------------------------------------
 //--------JS for Comparison Page ------------
 //-------------------------------------------
-$(document).ready(function() {
-	var userdestin = $('#shipsTo').val();
-	var shippingCarrier = "USPS";
+// $(document).ready(function() {
+// 	var userdestin = $('#shipsTo').val();
+// 	var shippingCarrier = "USPS";
 
-	var xxxyyyzzz = $('#showMap').html('<iframe width="1000" height="900" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q='+shippingCarrier+',77479&key=AIzaSyBn7OO0R_3Er16AAeAkJWdVspW2u7tNMmg" allowfullscreen></iframe>');
-	console.log(userZip);
-	console.log(userdestin);
-	console.log(shippingCarrier);
-	console.log(xxxyyyzzz);
-});
+// 	// var xxxyyyzzz = $('#showMap').html('<iframe width="1000" height="900" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q='+shippingCarrier+',77479&key=AIzaSyBn7OO0R_3Er16AAeAkJWdVspW2u7tNMmg" allowfullscreen></iframe>');
+// 	console.log(userZip);
+// 	console.log(userdestin);
+// 	console.log(shippingCarrier);
+// 	console.log(xxxyyyzzz);
+// });
