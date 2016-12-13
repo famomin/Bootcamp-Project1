@@ -82,3 +82,53 @@ $('.checkRatesButton').on("click", function(){
 // 	console.log(shippingCarrier);
 // 	console.log(xxxyyyzzz);
 // });
+
+
+//-------------------------------------------
+//--------JS to show map ------------
+//-------------------------------------------
+
+var map;
+var infowindow;
+
+function initMap() {
+  var mapCenter = {lat: 29.7604, lng: -95.3698}; //input the longitute and latitude from google geotag API
+  var carrierPicked = 'USPS'; //link this variable to the value of the button that user clicks.
+
+  map = new google.maps.Map(document.getElementById('showMap'), {
+    center: mapCenter,
+    zoom: 13
+  });
+    
+  var request = {
+    location: mapCenter,
+    radius: '500', // radius in meters
+    query: carrierPicked // replace this with the user input for USPS, UPS, or Fedex
+  }
+  
+  infowindow = new google.maps.InfoWindow();
+  var service = new google.maps.places.PlacesService(map);
+  service.textSearch(request, callback);
+}
+
+function callback(results, status) {
+  console.log(results.length);
+  if (status === google.maps.places.PlacesServiceStatus.OK) {
+    for (var i = 0; i < results.length; i++) {
+      createMarker(results[i]);
+    }
+  }
+}
+
+function createMarker(place) {
+  var placeLoc = place.geometry.location;
+  var marker = new google.maps.Marker({
+    map: map,
+    position: placeLoc
+  });
+
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.setContent(place.name);
+    infowindow.open(map, this);
+  });
+}
