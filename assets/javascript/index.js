@@ -118,12 +118,15 @@ function initMap() {
     radius: '500', // radius in meters
     query: carrierPicked // replace this with the user input for USPS, UPS, or Fedex
   }
+  console.log(request);
   
   infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
   // service.textSearch(request, callback);
 
   $("#checkRatesButton").on("click", function(){
+
+  	event.preventDefault();
 
   	var street = $("#fromStreetAdd").val().trim().replace( /\s+/g, "+");
   	var city  = $("#fromCityAdd").val().trim().replace(/\s+/g, "+");
@@ -140,12 +143,16 @@ function initMap() {
   		console.log(results);
   		mapCenter = results[0].geometry.location;
   		console.log("API Lat: " + mapCenter.lat + " lng: " + mapCenter.lng);
+  		request.location = mapCenter;
+		console.log(request);
+
+		zoomIn(mapCenter, map);
+
+		$("document").on("click", ".")
 
   	}); // ajax functions ends here.
 
-  }); // function for ajax call ends here.
-
-
+  }); // EventListener for Checkrate Button ends here.
 
 }
 
@@ -169,5 +176,10 @@ function createMarker(place) {
     infowindow.setContent(place.name);
     infowindow.open(map, this);
   });
+}
+
+function zoomIn(coordinates, map){
+	map.setCenter(coordinates);
+	map.setZoom(13);
 }
 
