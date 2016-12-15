@@ -1,3 +1,7 @@
+html, body {
+    height: 100%;
+}
+
 .socialMedia {
 	width: 40px;
 	height: 40px;
@@ -33,8 +37,13 @@
 }
 
 /* - - - - - - - check rates page - - - - - - - - - -*/
+.headerCheckRate{
+	background-image: url("../../assets/Images/checkrates.png");
+}
 
-/* - - - - - - - rate comparison page  - - - - - - - - */
+.page-scroll:link {
+	text-decoration: none;
+}
 
 #showMap, #mapColumn, #mapRow, #mapContainer {
 	height: 100%;
@@ -44,6 +53,3 @@
 	height: 100%;
 }
 
-html, body {
-    height: 100%;
-}
