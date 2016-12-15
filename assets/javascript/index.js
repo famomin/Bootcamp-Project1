@@ -109,8 +109,6 @@ function initMap() {
     center: mapCenter,
     zoom: 8
   });
-
-
     
   var request = {
     location: mapCenter,
@@ -120,7 +118,18 @@ function initMap() {
   
   infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
-  service.textSearch(request, callback);
+  // service.textSearch(request, callback);
+
+  $("#checkingRates").on("click", function(){
+  	var street = $("fromStreetAdd").val().trim();
+  	console.log(street);
+  	var city  = $("fromCityAdd").val().trim();
+  	console.log(city);
+  	var state = $("fromStateAdd").val().trim();
+  }); // function for ajax call ends here.
+
+
+
 }
 
 function callback(results, status) {
@@ -144,3 +153,4 @@ function createMarker(place) {
     infowindow.open(map, this);
   });
 }
+
