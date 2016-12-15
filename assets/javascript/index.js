@@ -97,8 +97,10 @@ function initMap() {
 
   map = new google.maps.Map(document.getElementById('showMap'), {
     center: mapCenter,
-    zoom: 13
+    zoom: 8
   });
+
+
     
   var request = {
     location: mapCenter,
