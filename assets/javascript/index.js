@@ -100,10 +100,13 @@ $('.checkRatesButton').on("click", function(){
 
 var map;
 var infowindow;
+var mapCenter;
+var carrierPicked;
 
 function initMap() {
-  var mapCenter = {lat: 29.7604, lng: -95.3698}; //input the longitute and latitude from google geotag API
-  var carrierPicked = 'USPS'; //link this variable to the value of the button that user clicks.
+  mapCenter = {lat: 29.7604, lng: -95.3698}; //input the longitute and latitude from google geotag API
+  console.log("Manual Lat: " + mapCenter.lat + " Lng: " + mapCenter.lng);
+  carrierPicked = 'USPS'; //link this variable to the value of the button that user clicks.
 
   map = new google.maps.Map(document.getElementById('showMap'), {
     center: mapCenter,
@@ -120,12 +123,26 @@ function initMap() {
   var service = new google.maps.places.PlacesService(map);
   // service.textSearch(request, callback);
 
-  $("#checkingRates").on("click", function(){
-  	var street = $("fromStreetAdd").val().trim();
-  	console.log(street);
-  	var city  = $("fromCityAdd").val().trim();
-  	console.log(city);
-  	var state = $("fromStateAdd").val().trim();
+  $("#checkRatesButton").on("click", function(){
+
+  	var street = $("#fromStreetAdd").val().trim().replace( /\s+/g, "+");
+  	var city  = $("#fromCityAdd").val().trim().replace(/\s+/g, "+");
+  	var state = $("#fromStateAdd").val().trim().replace(/\s+/g,"+");
+
+  	var ajaxQuery = "https://maps.googleapis.com/maps/api/geocode/json?address="+street+"+"+city+"+"+state+"&key=AIzaSyBn7OO0R_3Er16AAeAkJWdVspW2u7tNMmg";
+  	console.log(ajaxQuery);
+
+  	$.ajax({
+  		url: ajaxQuery, method: "GET"
+  	}).done(function(response){
+   		var results = response.results;
+  		console.log("still working");
+  		console.log(results);
+  		mapCenter = results[0].geometry.location;
+  		console.log("API Lat: " + mapCenter.lat + " lng: " + mapCenter.lng);
+
+  	}); // ajax functions ends here.
+
   }); // function for ajax call ends here.
 
 
