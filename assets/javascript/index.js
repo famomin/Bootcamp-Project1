@@ -68,6 +68,15 @@ $('.checkRatesButton').on("click", function(){
 
 });
 
+//Adding pakcages skipped for now.
+//to add additional pacages
+// $('#addPackage').on(click, function(){
+//   var packageNumber = 2;
+//   $('#packageInfo').append('<div class="col-sm-4 col-md-4"><h4>Package '+packageNumber+'</h4></div> ')
+
+
+
+// });
 
 //-------------------------------------------
 //--------JS for Comparison Page ------------
@@ -82,6 +91,7 @@ $('.checkRatesButton').on("click", function(){
 // 	console.log(shippingCarrier);
 // 	console.log(xxxyyyzzz);
 // });
+
 
 
 //-------------------------------------------
