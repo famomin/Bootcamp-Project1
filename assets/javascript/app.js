@@ -85,9 +85,9 @@ $('#checkRatesButton').on("click", function(event){
 		var a = results.rates[1].rate;
 		//Variable for parcel data
 		var b = results.parcel;
-		//console.log(a);
+		console.log(a);
 		//Prints Parcel data
-		//console.log(b);
+		console.log(b);
 		
 	});
 
