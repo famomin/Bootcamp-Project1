@@ -30,6 +30,9 @@ html, body {
     background-size: cover;
 }
 
+#servicesSteps {
+	height: auto;
+}
 
 /* - - - - - - - About Us Page - - - - - - - - - -*/
 .headerImageAbout {
