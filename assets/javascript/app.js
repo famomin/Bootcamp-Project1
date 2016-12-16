@@ -39,21 +39,21 @@ $('#checkRatesButton').on("click", function(event){
 	// var toCountry = "US";
 	// var toPhone = "281-265-6073";  
 
-	// //User fromAddress data 
-	var fromStreet = "4626 Russett Lane"; 
-	var fromCity = "Sugar Land"; 
-	var fromState = "TX"; 
-	var fromZipcode = "77479";
-	var fromCountry = "US";
-	var fromPhone = "281-265-1111";  
-
-	//User fromAddress Input data 
-	// var fromStreet = $('#fromStreetAdd').val(); 
-	// var fromCity = $('#fromCityAdd').val();
-	// var fromState = $('#fromStateAdd').val(); 
-	// var fromZipcode = $('#fromZipAdd').val();
+	//User fromAddress data 
+	// var fromStreet = "4626 Russett Lane"; 
+	// var fromCity = "Sugar Land"; 
+	// var fromState = "TX"; 
+	// var fromZipcode = "77479";
 	// var fromCountry = "US";
 	// var fromPhone = "281-265-1111";  
+
+	//User fromAddress Input data 
+	var fromStreet = $('#fromStreetAdd').val(); 
+	var fromCity = $('#fromCityAdd').val();
+	var fromState = $('#fromStateAdd').val(); 
+	var fromZipcode = $('#fromZipAdd').val();
+	var fromCountry = "US";
+	var fromPhone = "281-265-1111";  
 
 	//Heroku Link
 	var queryURL = "https://nameless-inlet-48347.herokuapp.com/"
