@@ -98,5 +98,5 @@ $('#checkRatesButton').on("click", function(event){
 		
 	});
 
-	$('#ratesButtonRow').html('<section class="center-block"> <div class="col-sm-3 col-sm-offset-3 col-md-2 col-md-offset-3"><button class="btn btn-primary">USPS <br>Standard Shipping <br> Rate</button></div> <div class="col-sm-2 col-md-2"><button class="btn btn-primary">UPS <br> Standard Shipping <br> Rate</button></div> <div class="col-sm-2 col-md-2"><button class="btn btn-primary">FedEX<br>Coming Soon</button></div><section>');	
+	$('#ratesButtonRow').html('<section class="center-block"> <div class="col-sm-3 col-sm-offset-3 col-md-2 col-md-offset-3"><button class="btn btn-primary carrierChosen" value="USPS">USPS <br>Standard Shipping <br> Rate</button></div> <div class="col-sm-2 col-md-2"><button class="btn btn-primary carrierChosen" value="UPS">UPS <br> Standard Shipping <br> Rate</button></div> <div class="col-sm-2 col-md-2"><button class="btn btn-primary carrierChosen" value="fedex">FedEX<br>Coming Soon</button></div><section>');	
 });
