@@ -102,6 +102,7 @@ var map;
 var infowindow;
 var mapCenter;
 var carrierPicked;
+var carrierMarkers = [];
 
 function initMap() {
   mapCenter = {lat: 29.7604, lng: -95.3698}; //input the longitute and latitude from google geotag API
@@ -120,9 +121,9 @@ function initMap() {
   }
   console.log(request);
   
-  infowindow = new google.maps.InfoWindow();
-  var service = new google.maps.places.PlacesService(map);
-  // service.textSearch(request, callback);
+  // infowindow = new google.maps.InfoWindow();
+  // var service = new google.maps.places.PlacesService(map);
+  // // service.textSearch(request, callback);
 
   $("#checkRatesButton").on("click", function(){
 
@@ -144,11 +145,21 @@ function initMap() {
   		mapCenter = results[0].geometry.location;
   		console.log("API Lat: " + mapCenter.lat + " lng: " + mapCenter.lng);
   		request.location = mapCenter;
-		console.log(request);
+		  console.log(request);
 
-		zoomIn(mapCenter, map);
+		  zoomIn(mapCenter, map);
 
-		$("document").on("click", ".")
+  		$("#ratesButtonRow").on("click", ".carrierChosen", function(){
+        removeMarkers();
+        var carrier = $(this).val();
+        console.log(typeof carrier);
+        request.query = carrier;
+        console.log(request);
+        infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.textSearch(request, callback);
+      });
+
 
   	}); // ajax functions ends here.
 
@@ -172,6 +183,8 @@ function createMarker(place) {
     position: placeLoc
   });
 
+  carrierMarkers.push(marker);
+
   google.maps.event.addListener(marker, 'click', function() {
     infowindow.setContent(place.name);
     infowindow.open(map, this);
@@ -183,3 +196,8 @@ function zoomIn(coordinates, map){
 	map.setZoom(13);
 }
 
+function removeMarkers(){
+    for(i=0; i< carrierMarkers.length; i++){
+        carrierMarkers[i].setMap(null);
+    }
+}
