@@ -1,4 +1,4 @@
- var userZip= ""; //using for Comparisoin Page and check rate page
+ var userZip= ""; //using for Comparison page and check rate page
 
  //-------------------------------------------
  //-----------JS for Homepage ----------------
@@ -19,18 +19,17 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 
-
+//adding event listener to subscribe to the newsletter
 $('#subscribeNewsletter').on("click", function(){
 	var email = $('#emailNewsletter').val().trim();
-	
-		console.log(email);
 
+    //pushing the user input to firebase
 		database.ref().push({
 			email: email
 		});	
-	
+	//clears the input box
 	$('#emailNewsletter').empty();
-	
+	//prevent the page from loading
 	return false;
 });
 
@@ -61,8 +60,10 @@ $('#subscribeNewsletter').on("click", function(){
 //--------JS for check rates ----------------
 //-------------------------------------------
 
+// adding event listener to check rates button
 $('.checkRatesButton').on("click", function(){
-	event.preventDefault();
+	//prevents page from reloading
+  event.preventDefault();
 
 	userZip = $('#shipsFrom').val();
 
@@ -98,63 +99,73 @@ $('.checkRatesButton').on("click", function(){
 //--------JS to show map ------------
 //-------------------------------------------
 
-var map;
-var infowindow;
-var mapCenter;
-var carrierPicked;
-var carrierMarkers = [];
+// initializing the variable
+var map; //this is the actual map.
+var infowindow; //this shows information about the location when user clicks on the marker
+var mapCenter; // this variable stores longitude and latitude of the location, which is at the center of the map
+var carrierPicked; //this variable stores information about which carrier user clicks on
+var carrierMarkers = []; //this is array of first 20 google search results of the carrier near location
 
+
+//this function initializes map and renders is on the page.
 function initMap() {
+  //initializing the map centered around houston. Because Houston is awesome.
   mapCenter = {lat: 29.7604, lng: -95.3698}; //input the longitute and latitude from google geotag API
-  console.log("Manual Lat: " + mapCenter.lat + " Lng: " + mapCenter.lng);
-  carrierPicked = 'USPS'; //link this variable to the value of the button that user clicks.
 
+  //creates a google map, shows it on the page, and assigns it to a variable
   map = new google.maps.Map(document.getElementById('showMap'), {
+    //longitude and latitude object is passed to center.
     center: mapCenter,
+    // larger the value of the zoom, the more zoomed in it will be
     zoom: 8
   });
-    
+  
+  // creating an object variable to pass to show marker function.  
   var request = {
     location: mapCenter,
     radius: '500', // radius in meters
     query: carrierPicked // replace this with the user input for USPS, UPS, or Fedex
   }
-  console.log(request);
   
-  // infowindow = new google.maps.InfoWindow();
-  // var service = new google.maps.places.PlacesService(map);
-  // // service.textSearch(request, callback);
-
+  // adds an event listener to checkRates button
+  // this function is writen to center the map at user's "from" location
   $("#checkRatesButton").on("click", function(){
 
   	event.preventDefault();
 
+    // assigns the user input for the from address to the variable
+    // removes any spaces at the beginning or the end
+    // replaces the space between the words to "+" sign.
+    // "    Sugar Land " will become "Sugar+Land"
   	var street = $("#fromStreetAdd").val().trim().replace( /\s+/g, "+");
   	var city  = $("#fromCityAdd").val().trim().replace(/\s+/g, "+");
   	var state = $("#fromStateAdd").val().trim().replace(/\s+/g,"+");
 
+    //Creates a URL to make an ajax query to Google Geotagging API
   	var ajaxQuery = "https://maps.googleapis.com/maps/api/geocode/json?address="+street+"+"+city+"+"+state+"&key=AIzaSyBn7OO0R_3Er16AAeAkJWdVspW2u7tNMmg";
   	console.log(ajaxQuery);
 
+    //Geotagging API pulls information about the Location 
+    // Trying to pull the longitude and latitude of user's "from" address
   	$.ajax({
   		url: ajaxQuery, method: "GET"
   	}).done(function(response){
-   		var results = response.results;
-  		console.log("still working");
-  		console.log(results);
-  		mapCenter = results[0].geometry.location;
-  		console.log("API Lat: " + mapCenter.lat + " lng: " + mapCenter.lng);
-  		request.location = mapCenter;
-		  console.log(request);
 
+      //assigns the results from the AJAX call to a variable
+   		var results = response.results;
+      //gets the longitude and latiture of the location and assign it to a variable
+  		mapCenter = results[0].geometry.location;
+      //changes the value of map center in the object that get passed to creater Marker function
+  		request.location = mapCenter;
+
+      //Zooms in to the street view of the location that user entered
 		  zoomIn(mapCenter, map);
 
+      // Removes previous location markers and adds new markers for the carrier that user chooses
   		$("#ratesButtonRow").on("click", ".carrierChosen", function(){
         removeMarkers();
         var carrier = $(this).val();
-        console.log(typeof carrier);
         request.query = carrier;
-        console.log(request);
         infowindow = new google.maps.InfoWindow();
         var service = new google.maps.places.PlacesService(map);
         service.textSearch(request, callback);
@@ -166,15 +177,16 @@ function initMap() {
   }); // EventListener for Checkrate Button ends here.
 
 }
-
+//google API function that checks if API call is good
 function callback(results, status) {
-  console.log(results.length);
   if (status === google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
+      // function to create a marker for each location.
       createMarker(results[i]);
     }
   }
 }
+
 
 function createMarker(place) {
   var placeLoc = place.geometry.location;
@@ -193,8 +205,10 @@ function createMarker(place) {
 
 function zoomIn(coordinates, map){
 	map.setCenter(coordinates);
+  //street view zoom.
 	map.setZoom(13);
 }
+
 
 function removeMarkers(){
     for(i=0; i< carrierMarkers.length; i++){
