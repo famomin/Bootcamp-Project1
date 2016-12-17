@@ -3,25 +3,25 @@ $('#checkRatesButton').on("click", function(event){
 	event.preventDefault();
 
 	//user weight data
-	var length = 2;
-	var width = 2;
-	var height = 2;
-	var weight = 32;
+	// var length = 2;
+	// var width = 2;
+	// var height = 2;
+	// var weight = 32;
 
 
 	//User parcel Input data
-	// var length = $('#LengthFrom').val();
-	// var width = $('#WidthFrom').val();
-	// var height = $('#HeightFrom').val();
+	var length = $('#LengthFrom').val();
+	var width = $('#WidthFrom').val();
+	var height = $('#HeightFrom').val();
 
-	// //API accepts weight in OZ
-	// var lb = parseInt($('#weightFormlb').val()); 
-	// //Converting lb to oz
-	// var lbTOoz = lb * 16;
-	// //OZ input value
-	// var oz = parseInt($('#weightFormOZ').val());
-	// //Weight in OZ
-	// var weight = lbTOoz + oz;
+	//API accepts weight in OZ
+	var lb = parseInt($('#weightFormlb').val()); 
+	//Converting lb to oz
+	var lbTOoz = lb * 16;
+	//OZ input value
+	var oz = parseInt($('#weightFormOZ').val());
+	//Weight in OZ
+	var weight = lbTOoz + oz;
 
 	//User toAddress data 
 	// var toStreet = "7037 Talbot Street "; 
