@@ -28,13 +28,17 @@ a.active {
   outline: none;
 }
 a {
-  color: #fed136;
+  color: #BF5700;  
+  font-weight: bold;
+
 }
 a:hover,
 a:focus,
 a:active,
 a.active {
-  color: #fec503;
+  color: #BF5700;
+  font-weight: bold;
+
 }
 h1,
 h2,
@@ -277,7 +281,7 @@ header .intro-text .intro-heading {
   }
 }
 section {
-  padding: 100px 0 0 0;
+  padding: 50px 0 50px 0;
 }
 section h2.section-heading {
   font-size: 40px;
@@ -294,7 +298,7 @@ section h3.section-subheading {
 }
 @media (min-width: 768px) {
   section {
-    padding: 150px 0 0 0;
+    padding: 50px 0 50px 0;
   }
 }
 .service-heading {
