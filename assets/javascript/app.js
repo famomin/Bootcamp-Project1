@@ -40,20 +40,20 @@ $('#checkRatesButton').on("click", function(event){
 	// var toPhone = "281-265-6073";  
 
 	//User fromAddress data 
-	// var fromStreet = "4626 Russett Lane"; 
-	// var fromCity = "Sugar Land"; 
-	// var fromState = "TX"; 
-	// var fromZipcode = "77479";
-	// var fromCountry = "US";
-	// var fromPhone = "281-265-1111";  
-
-	//User fromAddress Input data 
-	var fromStreet = $('#fromStreetAdd').val(); 
-	var fromCity = $('#fromCityAdd').val();
-	var fromState = $('#fromStateAdd').val(); 
-	var fromZipcode = $('#fromZipAdd').val();
+	var fromStreet = "4626 Russett Lane"; 
+	var fromCity = "Sugar Land"; 
+	var fromState = "TX"; 
+	var fromZipcode = "77479";
 	var fromCountry = "US";
 	var fromPhone = "281-265-1111";  
+
+	//User fromAddress Input data 
+	// var fromStreet = $('#fromStreetAdd').val(); 
+	// var fromCity = $('#fromCityAdd').val();
+	// var fromState = $('#fromStateAdd').val(); 
+	// var fromZipcode = $('#fromZipAdd').val();
+	// var fromCountry = "US";
+	// var fromPhone = "281-265-1111";  
 
 	//Heroku Link
 	var queryURL = "https://nameless-inlet-48347.herokuapp.com/"
@@ -103,6 +103,7 @@ $('#checkRatesButton').on("click", function(event){
 		var cheapestUPS = [];
 		var cheapestFEDEX = [];
 
+		//Defining lowest shipping variables
 		var lowestUSPS;
 		var lowestUPS;
 		var lowestFEDEX; 
@@ -131,6 +132,7 @@ $('#checkRatesButton').on("click", function(event){
 				cheapestFEDEX.push(ups);	
 			}
 			else{
+				//Error Log
 				console.log("ERROR: Check the for loop for finding lowes price.")
 			}
 
@@ -149,13 +151,11 @@ $('#checkRatesButton').on("click", function(event){
 		lowestFEDEX = Math.min.apply(null, cheapestFEDEX);
 		//console.log(lowestFEDEX);
 		
-		
+		//Creates Buttons to select a shipping rate
+		$('#ratesButtonRow').html('<section class="center-block"> <div class="col-sm-3 col-sm-offset-3 col-md-2 col-md-offset-3"><button class="btn btn-primary carrierChosen" value="USPS">USPS <br>First Class Mail<br> Rate: $'+ lowestUSPS +'</button></div> <div class="col-sm-2 col-md-2"><button class="btn btn-primary carrierChosen" value="UPS">UPS <br>UPS Ground<br> Rate: $'+ lowestUPS +'</button></div> <div class="col-sm-2 col-md-2"><button class="btn btn-primary carrierChosen" value="fedex">FedEX<br>Standard Shipping<br>Coming Soon</button></div><section>');
 		
 	});
 
-	$('#ratesButtonRow').html('<section class="center-block"> <div class="col-sm-3 col-sm-offset-3 col-md-2 col-md-offset-3"><button class="btn btn-primary carrierChosen" value="USPS">USPS <br>Standard Shipping <br> Rate</button></div> <div class="col-sm-2 col-md-2"><button class="btn btn-primary carrierChosen" value="UPS">UPS <br> Standard Shipping <br> Rate</button></div> <div class="col-sm-2 col-md-2"><button class="btn btn-primary carrierChosen" value="fedex">FedEX<br>Coming Soon</button></div><section>');
-
-	
 
 
 });
