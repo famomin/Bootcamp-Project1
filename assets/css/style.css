@@ -71,3 +71,10 @@ html, body {
 .headerImageIntl {
 	background-image: url("../../assets/Images/header.jpeg");
 }
+
+/* - - - - - - - app.js  page - - - - - - - - - -*/
+.carrierChosen {
+	background-color: lightblue;
+}
+
+
