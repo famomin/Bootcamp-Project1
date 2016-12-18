@@ -39,9 +39,14 @@ html, body {
 	background-image: url("../../assets/Images/about.jpg");
 }
 
+.imageProfile {
+	max-height: 250px;
+	max-width: 250px;
+}
+
 /* - - - - - - - check rates page - - - - - - - - - -*/
 .headerCheckRate{
-	background-image: url("../../assets/Images/checkrates.png");
+	background-image: url("../../assets/Images/checkrates.jpeg");
 }
 
 .page-scroll:link {
@@ -56,4 +61,25 @@ html, body {
 	height: 100%;
 	min-height: 500px;
 }
+
+/* - - - - - - - carrier  page - - - - - - - - - -*/
+.headerImageCarriers {
+	background-image: url("../../assets/Images/carriers.jpeg");
+}
+
+/* - - - - - - - refund  page - - - - - - - - - -*/
+.headerImageRefund {
+	background-image: url("../../assets/Images/header.jpeg");
+}
+
+/* - - - - - - - intl shipping  page - - - - - - - - - -*/
+.headerImageIntl {
+	background-image: url("../../assets/Images/header.jpeg");
+}
+
+/* - - - - - - - app.js  page - - - - - - - - - -*/
+.carrierChosen {
+	background-color: lightblue;
+}
+
 

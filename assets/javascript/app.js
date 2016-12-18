@@ -3,57 +3,57 @@ $('#checkRatesButton').on("click", function(event){
 	event.preventDefault();
 
 	//user weight data
-	var length = 2;
-	var width = 2;
-	var height = 2;
-	var weight = 32;
+	// var length = 2;
+	// var width = 2;
+	// var height = 2;
+	// var weight = 32;
 
 
 	//User parcel Input data
-	// var length = $('#LengthFrom').val();
-	// var width = $('#WidthFrom').val();
-	// var height = $('#HeightFrom').val();
+	var length = $('#LengthFrom').val();
+	var width = $('#WidthFrom').val();
+	var height = $('#HeightFrom').val();
 
-	// //API accepts weight in OZ
-	// var lb = parseInt($('#weightFormlb').val()); 
-	// //Converting lb to oz
-	// var lbTOoz = lb * 16;
-	// //OZ input value
-	// var oz = parseInt($('#weightFormOZ').val());
-	// //Weight in OZ
-	// var weight = lbTOoz + oz;
+	//API accepts weight in OZ
+	var lb = parseInt($('#weightFormlb').val()); 
+	//Converting lb to oz
+	var lbTOoz = lb * 16;
+	//OZ input value
+	var oz = parseInt($('#weightFormOZ').val());
+	//Weight in OZ
+	var weight = lbTOoz + oz;
 
 	//User toAddress data 
-	var toStreet = "7037 Talbot Street "; 
-	var toCity = "Freeport"; 
-	var toState = "New York"; 
-	var toZipcode = "11520";
-	var toCountry = "US";
-	var toPhone = "281-265-6073";  
-
-	//User toAddress Input data 
-	// var toStreet = $('#toStreetAdd').val(); 
-	// var toCity = $('#toCityAdd').val();
-	// var toState = $('#toStateAdd').val(); 
-	// var toZipcode = $('#toZipAdd').val();
+	// var toStreet = "7037 Talbot Street "; 
+	// var toCity = "Freeport"; 
+	// var toState = "New York"; 
+	// var toZipcode = "11520";
 	// var toCountry = "US";
 	// var toPhone = "281-265-6073";  
 
-	//User fromAddress data 
-	var fromStreet = "4626 Russett Lane"; 
-	var fromCity = "Sugar Land"; 
-	var fromState = "TX"; 
-	var fromZipcode = "77479";
-	var fromCountry = "US";
-	var fromPhone = "281-265-1111";  
+	//User toAddress Input data 
+	var toStreet = $('#toStreetAdd').val(); 
+	var toCity = $('#toCityAdd').val();
+	var toState = $('#toStateAdd').val(); 
+	var toZipcode = $('#toZipAdd').val();
+	var toCountry = "US";
+	var toPhone = "281-265-6073";  
 
-	//User fromAddress Input data 
-	// var fromStreet = $('#fromStreetAdd').val(); 
-	// var fromCity = $('#fromCityAdd').val();
-	// var fromState = $('#fromStateAdd').val(); 
-	// var fromZipcode = $('#fromZipAdd').val();
+	//User fromAddress data 
+	// var fromStreet = "4626 Russett Lane"; 
+	// var fromCity = "Sugar Land"; 
+	// var fromState = "TX"; 
+	// var fromZipcode = "77479";
 	// var fromCountry = "US";
 	// var fromPhone = "281-265-1111";  
+
+	//User fromAddress Input data 
+	var fromStreet = $('#fromStreetAdd').val(); 
+	var fromCity = $('#fromCityAdd').val();
+	var fromState = $('#fromStateAdd').val(); 
+	var fromZipcode = $('#fromZipAdd').val();
+	var fromCountry = "US";
+	var fromPhone = "281-265-1111";  
 
 	//Heroku Link
 	var queryURL = "https://nameless-inlet-48347.herokuapp.com/"
@@ -152,7 +152,7 @@ $('#checkRatesButton').on("click", function(event){
 		//console.log(lowestFEDEX);
 		
 		//Creates Buttons to select a shipping rate
-		$('#ratesButtonRow').html('<section class="center-block"> <div class="col-sm-3 col-sm-offset-3 col-md-2 col-md-offset-3"><button class="btn btn-primary carrierChosen" value="USPS">USPS <br>First Class Mail<br> Rate: $'+ lowestUSPS +'</button></div> <div class="col-sm-2 col-md-2"><button class="btn btn-primary carrierChosen" value="UPS">UPS <br>UPS Ground<br> Rate: $'+ lowestUPS +'</button></div> <div class="col-sm-2 col-md-2"><button class="btn btn-primary carrierChosen" value="fedex">FedEX<br>Standard Shipping<br>Coming Soon</button></div><section>');
+		$('#ratesButtonRow').html('<section class="center-block"> <div class="col-sm-3 col-sm-offset-3 col-md-2 col-md-offset-3"><button class="btn btn-primary carrierChosen" value="USPS">USPS <br>Standard Shipping<br> Rate: $'+ lowestUSPS +'</button></div> <div class="col-sm-2 col-md-2"><button class="btn btn-primary carrierChosen" value="UPS">UPS <br>Standard Shipping<br> Rate: $'+ lowestUPS +'</button></div> <div class="col-sm-2 col-md-2"><button class="btn btn-primary carrierChosen" value="fedex">FedEX<br>Standard Shipping<br>Coming Soon</button></div><section>');
 		
 	});
 
