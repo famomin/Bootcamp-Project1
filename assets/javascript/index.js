@@ -189,12 +189,17 @@ function callback(results, status) {
 
 
 function createMarker(place) {
+  //google map API method to create a long/lat object.
+  //object is unreadable. Has some methods for API internal code
   var placeLoc = place.geometry.location;
+  //google map API method to create a marker
   var marker = new google.maps.Marker({
     map: map,
     position: placeLoc
   });
 
+  //pushes the marker to an array
+  // this array can be used to show result in text form, in future
   carrierMarkers.push(marker);
 
   google.maps.event.addListener(marker, 'click', function() {
@@ -209,7 +214,8 @@ function zoomIn(coordinates, map){
 	map.setZoom(13);
 }
 
-
+//function to remove markers.
+//this is used to delete markers of previously chosen carrier
 function removeMarkers(){
     for(i=0; i< carrierMarkers.length; i++){
         carrierMarkers[i].setMap(null);
