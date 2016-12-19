@@ -1,4 +1,5 @@
  var userZip= ""; //using for Comparison page and check rate page
+ var statesAvailable = ["alabama", "al", "arkansas", "ar", "arizona", "az", "california", "ca", "colorado", "co", "connecticut", "ct", "district of columbia", "dc", "delaware", "de", "florida", "fl", "georgia", "ga", "iowa",  ]
 
  //-------------------------------------------
  //-----------JS for Homepage ----------------
