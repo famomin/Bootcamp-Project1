@@ -39,5 +39,5 @@ In future, we plan to add feature like buy shipping labels, and track shipments.
 *Kashan Ali Qazi
 
 ## Acknowledgments
-Special thanks to all the instructors and TA of Coding Bootcamp in Houston.
+Special thanks to all the instructors and TAs of Coding Bootcamp in Houston.
 
