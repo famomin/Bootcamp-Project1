@@ -34,9 +34,9 @@ In future, we plan to add feature like buy shipping labels, and track shipments.
 
 
 ## Contributors
-*Azim Momin
-*Faras Momin
-*Kashan Ali Qazi
+* Azim Momin
+* Faras Momin
+* Kashan Ali Qazi
 
 ## Acknowledgments
 Special thanks to all the instructors and TAs of Coding Bootcamp in Houston.
