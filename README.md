@@ -34,13 +34,9 @@ In future, we plan to add feature like buy shipping labels, and track shipments.
 
 
 ## Contributors
-Azim Momin
-Faras Momin
-Kashan Ali Qazi
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+*Azim Momin
+*Faras Momin
+*Kashan Ali Qazi
 
 ## Acknowledgments
 Special thanks to all the instructors and TA of Coding Bootcamp in Houston.
