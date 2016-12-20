@@ -1,4 +1,3 @@
- var statesAvailable = ["alabama", "al", "arkansas", "ar", "arizona", "az", "california", "ca", "colorado", "co", "connecticut", "ct", "district of columbia", "dc", "delaware", "de", "florida", "fl", "georgia", "ga", "iowa", "ia", "idaho", "id", "illinois", "il", "indiana", "in", "kansas", "ks", "kentucky", "ky", "louisiana", "la", "massachusetts", "ma", "maryland", "md", "maine", "me", "michigan", "mi", "minnesota", "mn", "missouri", "mo", "mississippi", "ms", "montana", "mt", "north carolina", "nc", "north dakota", "nd", "nebraska" ]
  
 $('#checkRatesButton').on("click", function(event){
 	
