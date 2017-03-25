@@ -1,6 +1,9 @@
-#Shiplify-Simplyfying Shipping 
+# Shiplify-Simplyfying Shipping 
 
 Shiplify is a go to place to get best prices for shipping labels. We have created an easy online platform to compare shipping rates from different carriers in one place, without having to create separate accounts on different websites.
+
+## URL
+https://frozen-reef-25187.herokuapp.com/
 
 ## Screenshots
 ![alt text](assets/Images/ss1.png "3 Steps to get shipping label")
